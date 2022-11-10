@@ -28,6 +28,7 @@ public class Itemdetails implements	Persistable<Integer> {
 	}
 
 	@Id 
+	@Column
 	private Integer id;
     @Column
     private String name;

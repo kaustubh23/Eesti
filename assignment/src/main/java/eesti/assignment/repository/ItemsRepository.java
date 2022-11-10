@@ -5,6 +5,7 @@ import org.springframework.stereotype.Repository;
 
 import eesti.assignment.model.Itemdetails;
 
+@Repository
 public interface ItemsRepository extends ReactiveCrudRepository<Itemdetails,Integer> {
 
 }
