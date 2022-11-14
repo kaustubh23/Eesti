@@ -46,7 +46,7 @@ public class ItemsController {
 	@PutMapping("/{buy}")
 	public Flux<Itemdetails> buyItem(@RequestBody List<Itemdetails> items) {
 
-		return service.buyItem2(items);
+		return service.buyItems(items);
 	}
 
 }

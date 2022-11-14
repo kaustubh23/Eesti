@@ -3,5 +3,6 @@ CREATE TABLE IF NOT EXISTS items (
     name varchar(50),
     price numeric (8,2),
 	type varchar(50),
-	quantity integer
+	quantity integer,
+	entry boolean
 );

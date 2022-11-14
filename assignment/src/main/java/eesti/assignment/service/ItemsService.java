@@ -26,8 +26,6 @@ public class ItemsService {
 		return repository.findById(id);
 	}
 
-
-
 	@Transactional
 	public Mono<Itemdetails> saveItem(Itemdetails items) {
 		return this.repository.findById(items.getId()).flatMap(p -> {
@@ -41,26 +39,7 @@ public class ItemsService {
 	}
 
 	@SuppressWarnings("unchecked")
-	public Mono<Itemdetails> buyItem(Itemdetails value) {
-		return this.repository.findById(value.getId()).flatMap(p -> {
-			if (p.getQuantity() - value.getQuantity() >= 0) {
-				p.setName(value.getName());
-				p.setPrice(value.getPrice());
-				p.setType(value.getType());
-				p.setQuantity(p.getQuantity() - value.getQuantity());
-				p.setEntry(value.isEntry());
-				this.repository.save(p);
-			} else {
-				return Mono.empty();
-			}
-			return Mono.just(value);
-
-		});
-
-	}
-
-	@SuppressWarnings("unchecked")
-	public Flux<Itemdetails> buyItem2(List<Itemdetails> value) {
+	public Flux<Itemdetails> buyItems(List<Itemdetails> value) {
 		return repository.saveAll(value);
 		
 		}
